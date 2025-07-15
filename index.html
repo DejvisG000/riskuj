@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AZ-Riskuj</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riskuj</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>MiniRiskuj</h1>
-  <div id="scoreboard"></div>
-  <div id="game-board"></div>
 
-  <div id="question-modal" class="modal hidden">
-  <div class="modal-content">
-    <div id="question-text"></div>
-    <div id="team-buttons"></div>
-    <button id="close-question">Zavřít</button>
+  <h1 style="text-align:center;">Hra Riskuj</h1>
+
+  <!-- Týmové skóre -->
+  <div id="scores" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;"></div>
+
+  <!-- Herní deska -->
+  <div id="board"></div>
+
+  <!-- Modal pro otázku -->
+  <div id="modal" class="modal hidden">
+    <div id="modal-content" class="modal-content"></div>
   </div>
-</div>
-<div id="endgame-modal" class="modal hidden"></div>
 
-  <script src="script.js"></script>
+  <!-- Modal pro výsledky po konci hry -->
+  <div id="endgame-modal" class="modal hidden">
+    <div class="modal-content" id="endgame-content">
+      <h2>Hra skončila!</h2>
+      <div id="results"></div>
+      <button onclick="location.reload()">Hrát znovu</button>
+    </div>
+  </div>
+
+  <!-- Skript -->
+  <script src="script.js" defer></script>
+
 </body>
 </html>

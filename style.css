@@ -1,178 +1,193 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #e2e8f0;
-  text-align: center;
-  margin: 20px;
-  color: #333;
+  font-family: sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 20px;
 }
 
-h1 {
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-#scoreboard {
+#board {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.team-score {
-  padding: 12px 25px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 18px;
-  color: white;
-  min-width: 120px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  user-select: none;
-  transition: transform 0.2s;
-}
-
-.team-score:hover {
-  transform: scale(1.05);
-  cursor: default;
-}
-
-/* Barvy týmů */
-#score-Tým\ 1 { background-color: #dc2626; }  /* červená */
-#score-Tým\ 2 { background-color: #2563eb; }  /* modrá */
-#score-Tým\ 3 { background-color: #16a34a; }  /* zelená */
-#score-Tým\ 4 { background-color: #eab308; }  /* žlutá */
-#score-Tým\ 5 { background-color: #db2777; }  /* růžová */
-
-#game-board {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto 40px;
-}
-
-.category-column {
+.column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  background: #f3f4f6;
-  border-radius: 12px;
-  padding: 15px 10px 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  min-width: 130px;
+  background: #e0e7ff;
+  border-radius: 10px;
+  padding: 20px;
+   width: 120px;        
 }
 
 .category-title {
-  font-weight: 700;
-  font-size: 22px;
-  color: #1e293b;
-  margin-bottom: 20px;
-  user-select: none;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .card {
-  background: #2563eb;
-  color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(37, 99, 235, 0.5);
+  margin: 8px 0;
+  padding: 12px 18px;
+  font-size: 20px;
   cursor: pointer;
-  user-select: none;
-  width: 80%;
-  max-width: 100px;
-  text-align: center;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.card:hover:not(.used) {
-  background-color: #1e40af;
-  box-shadow: 0 7px 15px rgba(30, 64, 175, 0.8);
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 100px;
 }
 
 .card.used {
-  background: #9ca3af;
-  color: #4b5563;
-  box-shadow: none;
+  background: #94a3b8;
   cursor: default;
 }
 
-/* Modální okno */
+#endgame-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden, #endgame-modal.hidden {
+  display: none;
+}
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(15, 23, 42, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
-.modal.hidden {
+/* Obsah modalu */
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  text-align: center;
+  font-size: 1.6rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.team-choice button {
+  margin: 10px 5px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 120px;
+  font-size: 1.2rem;
+}
+
+/* Výběr týmu – tlačítka vycentrovaná a větší */
+.team-choice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+
+.team-score {
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.team-score.red    { background: #ef4444; }
+.team-score.blue   { background: #3b82f6; }
+.team-score.green  { background: #22c55e; }
+.team-score.yellow { background: #eab308; }
+.team-score.pink   { background: #ec4899; }
+
+.team-score.highlighted {
+  animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(255, 255, 0, 0.5); }
+  100% { background-color: transparent; }
+}
+
+.correct-answer {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #17942c;
+  font-size: 18px;
+}
+
+.correct-answer.animated {
+  animation: fadeInZoom 0.5s ease;
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hidden {
   display: none;
 }
 
-.modal-content {
-  background: white;
-  padding: 35px 40px;
-  border-radius: 14px;
-  max-width: 450px;
-  width: 90%;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-  text-align: center;
+.show-answer-btn, .close-btn {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  padding: 12px 20px;
+  background: #6b7280;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* Barva pro „Nikdo“ a správnou odpověď */
+.no-team-answer {
+  background-color: #6b7280; /* například šedá (tailwind gray-500) */
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: default;
   user-select: none;
 }
 
-#question-text {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #1e293b;
-}
-
-#team-buttons button {
-  margin: 8px 12px;
-  padding: 12px 22px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  color: white;
-  transition: background-color 0.25s;
-  min-width: 110px;
-}
-
-/* Barvy tlačítek týmů */
-#team-buttons button:nth-child(1) { background-color: #dc2626; }
-#team-buttons button:nth-child(2) { background-color: #2563eb; }
-#team-buttons button:nth-child(3) { background-color: #16a34a; }
-#team-buttons button:nth-child(4) { background-color: #eab308; color: #1f2937; }
-#team-buttons button:nth-child(5) { background-color: #db2777; }
-
-/* Tlačítko Nikdo */
-#team-buttons button:last-child {
+/* Pokud chceš stejné stylování pro tlačítko zavřít */
+.close-btn.no-team-answer {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 8px;
   background-color: #6b7280;
-}
-
-/* Zavřít tlačítko */
-#close-question {
-  margin-top: 30px;
-  background-color: #64748b;
-  padding: 10px 30px;
-  font-weight: 600;
-  border-radius: 10px;
-  color: white;
   cursor: pointer;
-  border: none;
-  transition: background-color 0.25s;
 }
-
-#close-question:hover {
-  background-color: #475569;
+/* Otázka – větší a centrovaná */
+.question-text {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
 }

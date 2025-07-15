@@ -1,199 +1,201 @@
-const teams = ["Tým 1", "Tým 2", "Tým 3", "Tým 4", "Tým 5"];
-const teamScores = {};
-let currentPoints = 0;
-
-const questions = {
-  "Historie": {
-    "100": "Kdy začala 2. světová válka?",
-    "200": "Kdo byl prvním československým prezidentem?",
-    "300": "Kdy byla podepsána Mnichovská dohoda?",
-    "400": "Kdo vedl husity?",
-    "500": "Ve kterém roce skončila 1. světová válka?"
+const gameData = [
+  {
+    topic: "Ministrantské znalosti",
+    questions: [
+      { value: 100, question: "Co to je? <br><img src='lavabo.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Lavábo" },
+      { value: 200, question: "Co to je? <br><img src='purifikatorium.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Purifikatorium" },
+      { value: 300, question: "Jak se nazývá kniha, ze které se čte evangelium?", answer: "Lekcionář nebo evangeliář" },
+      { value: 400, question: "Jaké jsou liturgické barvy používané při mši?", answer: "růžová, červená, zelená, bílá, fialová" },
+      { value: 500, question: "Jaký je symbolický význam kadidla?", answer: "Stoupající modlitby k Bohu" }
+    ]
   },
-  "Věda": {
-    "100": "Kolik nohou má pavouk?",
-    "200": "Co je H2O?",
-    "300": "Jak se jmenuje největší planeta sluneční soustavy?",
-    "400": "Kdo vynalezl žárovku?",
-    "500": "Jaký je chemický prvek Au?"
+  {
+    topic: "Uhádni vedoucího",
+    questions: [
+      { value: 100, question: "Kdy byla bitva na Bílé hoře?", answer: "1620" },
+      { value: 200, question: "Kdo byl prvním prezidentem ČSR?", answer: "T. G. Masaryk" },
+      { value: 300, question: "Ve kterém roce skončila 2. světová válka?", answer: "1945" },
+      { value: 400, question: "Kdy začala 1. světová válka?", answer: "1914" },
+      { value: 500, question: "Kdo vedl husitské vojsko?", answer: "Jan Žižka" }
+    ]
   },
-  "Sport": {
-    "100": "Kolik hráčů je v jednom fotbalovém týmu?",
-    "200": "Ve kterém sportu se používá pálka a míček?",
-    "300": "Jak se jmenuje slavný český hokejista s číslem 68?",
-    "400": "Kde se konaly olympijské hry 2016?",
-    "500": "Kolik prstenů je na logu olympiády?"
+  {
+    topic: "Poznej ministranta",
+    questions: [
+      { value: 100, question: "Hlavní město Francie?", answer: "Paříž" },
+      { value: 200, question: "Největší oceán na světě?", answer: "Tichý oceán" },
+      { value: 300, question: "Nejvyšší hora světa?", answer: "Mount Everest" },
+      { value: 400, question: "Který stát má nejvíce obyvatel?", answer: "Čína" },
+      { value: 500, question: "Kde leží Viktoriino jezero?", answer: "Afrika" }
+    ]
   },
-  "Příroda": {
-    "100": "Jaký je největší savec na světě?",
-    "200": "Který strom je národní strom ČR?",
-    "300": "Jak se nazývá mládě lišky?",
-    "400": "Co je to fotosyntéza?",
-    "500": "Kde roste bambus přirozeně?"
+  {
+    topic: "Poznej film (hláška)",
+    questions: [
+      { value: 100, question: "Jaké je největší zvíře?", answer: "Modrá velryba" },
+      { value: 200, question: "Jaký je nejrychlejší suchozemský savec?", answer: "Gepard" },
+      { value: 300, question: "Kolik má pavouk nohou?", answer: "8" },
+      { value: 400, question: "Který pták neumí létat?", answer: "Pštros" },
+      { value: 500, question: "Jak dlouho trvá březost slona?", answer: "22 měsíců" }
+    ]
   },
-  "Kultura": {
-    "100": "Kdo napsal Babičku?",
-    "200": "Jaké je hlavní město Francie?",
-    "300": "Kdo složil Českou hymnu?",
-    "400": "Kdo je autorem obrazu Mona Lisa?",
-    "500": "Jak se jmenuje slavná divadelní scéna v Praze?"
+  {
+    topic: "Poznej film (song)",
+    questions: [
+      { value: 100, question: "Kdo napsal Máj?", answer: "Karel Hynek Mácha" },
+      { value: 200, question: "Kdo je autorem Malého prince?", answer: "Antoine de Saint-Exupéry" },
+      { value: 300, question: "Autor R.U.R.?", answer: "Karel Čapek" },
+      { value: 400, question: "Kdo napsal Kytici?", answer: "Karel Jaromír Erben" },
+      { value: 500, question: "Autorka Harryho Pottera?", answer: "J. K. Rowlingová" }
+    ]
   }
+];
+
+const teams = ["Tým 1", "Tým 2", "Tým 3", "Tým 4", "Tým 5"];
+const teamColors = {
+  "Tým 1": "#dc2626",
+  "Tým 2": "#2563eb",
+  "Tým 3": "#16a34a",
+  "Tým 4": "#eab308",
+  "Tým 5": "#db2777"
 };
+const teamScores = Object.fromEntries(teams.map(t => [t, 0]));
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Inicializace skóre týmů
-  const scoreboard = document.getElementById("scoreboard");
-  teams.forEach(team => {
-    teamScores[team] = 0;
-    const div = document.createElement("div");
-    div.className = "team-score";
-    div.id = `score-${team}`;
-    div.innerText = `${team}: 0 bodů`;
-    scoreboard.appendChild(div);
-  });
+const board = document.getElementById("board");
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modal-content");
+const scores = document.getElementById("scores");
 
-  renderBoard();
-
-  // Zavírací tlačítko modálu
-  document.getElementById("close-question").onclick = () => {
-    closeModal();
-  };
+teams.forEach(team => {
+  const div = document.createElement("div");
+  div.className = "team-score";
+  div.style.color = teamColors[team];
+  div.id = `${team}-score`;
+  div.innerText = `${team}: 0 bodů`;
+  scores.appendChild(div);
 });
 
-function renderBoard() {
-  const board = document.getElementById("game-board");
-  board.innerHTML = "";
+gameData.forEach(category => {
+  const column = document.createElement("div");
+  column.className = "column";
 
-  Object.keys(questions).forEach(category => {
-    const column = document.createElement("div");
-    column.className = "category-column";
+  const title = document.createElement("div");
+  title.className = "category-title";
+  title.innerText = category.topic;
+  column.appendChild(title);
 
-    // Nadpis kategorie
-    const title = document.createElement("div");
-    title.className = "category-title";
-    title.innerText = category;
-    column.appendChild(title);
-
-    // Přidání tlačítek s body vertikálně (100-500)
-    const sortedPoints = Object.keys(questions[category]).sort((a, b) => a - b);
-
-    sortedPoints.forEach(points => {
-      const btn = document.createElement("div");
-      btn.className = "card";
-      btn.innerText = points;
-      btn.dataset.category = category;
-      btn.dataset.points = points;
-
-      btn.addEventListener("click", () => {
-        if (btn.classList.contains("used")) return;
-
-        currentPoints = parseInt(points);
-        const questionText = questions[category][points];
-        document.getElementById("question-text").innerText = questionText;
-
-        const teamBtns = document.getElementById("team-buttons");
-        teamBtns.innerHTML = "";
-
-        teams.forEach(team => {
-          const tbtn = document.createElement("button");
-          tbtn.innerText = team;
-          tbtn.onclick = () => {
-            teamScores[team] += currentPoints;
-            document.getElementById(`score-${team}`).innerText =
-              `${team}: ${teamScores[team]} bodů`;
-            btn.classList.add("used");
-            closeModal();
-            checkGameEnd();
-
-          };
-          teamBtns.appendChild(tbtn);
-        });
-
-        const noOneBtn = document.createElement("button");
-        noOneBtn.innerText = "Nikdo";
-        noOneBtn.style.backgroundColor = "#6b7280";
-        noOneBtn.onclick = () => {
-          btn.classList.add("used");
-          closeModal();
-        };
-        teamBtns.appendChild(noOneBtn);
-
-        document.getElementById("question-modal").classList.remove("hidden");
-      });
-
-      column.appendChild(btn);
-    });
-
-    board.appendChild(column);
+  category.questions.forEach(q => {
+    const btn = document.createElement("button");
+    btn.className = "card";
+    btn.innerText = q.value;
+    btn.onclick = () => showQuestion(q, btn);
+    column.appendChild(btn);
   });
+
+  board.appendChild(column);
+});
+
+function showQuestion(question, btn) {
+  modalContent.innerHTML = "";
+
+  const questionText = document.createElement("div");
+  questionText.className = "question-text";
+  questionText.innerHTML = question.question;
+  modalContent.appendChild(questionText);
+
+  // Odpověď (skrytá)
+  const answerText = document.createElement("div");
+  answerText.className = "correct-answer hidden";
+  answerText.innerHTML = `Správná odpověď: ${question.answer}`;
+  modalContent.appendChild(answerText);
+
+  const showAnswerBtn = document.createElement("button");
+  showAnswerBtn.innerText = "Zobrazit správnou odpověď";
+  showAnswerBtn.className = "show-answer-btn";
+  showAnswerBtn.onclick = () => {
+    answerText.classList.remove("hidden");
+    answerText.classList.add("animated");
+  };
+  modalContent.appendChild(showAnswerBtn);
+
+  const teamChoice = document.createElement("div");
+  teamChoice.className = "team-choice";
+
+  [...teams, "Nikdo"].forEach(team => {
+    const tbtn = document.createElement("button");
+    tbtn.innerText = team;
+    tbtn.style.backgroundColor = team === "Nikdo" ? "#ccc" : teamColors[team];
+    tbtn.style.color = "white";
+    tbtn.onclick = () => {
+      if (team !== "Nikdo") {
+        teamScores[team] += question.value;
+        const teamScore = document.getElementById(`${team}-score`);
+        teamScore.innerText = `${team}: ${teamScores[team]} bodů`;
+
+        teamScore.classList.add("highlighted");
+        setTimeout(() => teamScore.classList.remove("highlighted"), 1000);
+      }
+      btn.classList.add("used");
+      closeModal();
+      checkGameEnd();
+    };
+    teamChoice.appendChild(tbtn);
+  });
+
+  modalContent.appendChild(teamChoice);
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerText = "Zavřít";
+  closeBtn.className = "close-btn";
+  closeBtn.onclick = () => closeModal();
+  modalContent.appendChild(closeBtn);
+
+  modal.classList.remove("hidden");
 }
 
 function closeModal() {
-  document.getElementById("question-modal").classList.add("hidden");
+  modal.classList.add("hidden");
 }
+
 function checkGameEnd() {
-  // Najdi všechny otázky na desce
   const allCards = document.querySelectorAll(".card");
   const allUsed = Array.from(allCards).every(card => card.classList.contains("used"));
-
-  if (allUsed) {
-    showResults();
-  }
+  if (allUsed) showResults();
 }
 
 function showResults() {
   const sortedTeams = Object.entries(teamScores)
     .sort((a, b) => b[1] - a[1]);
 
-  const modalContent = document.createElement("div");
-  modalContent.className = "modal-content";
+  const endModal = document.getElementById("endgame-modal");
+  endModal.innerHTML = "";
+
+  const content = document.createElement("div");
+  content.className = "modal-content";
 
   const title = document.createElement("h2");
-  title.innerText = "Konec hry - výsledky";
-  modalContent.appendChild(title);
+  title.innerText = "Konec hry – Výsledky";
+  content.appendChild(title);
 
   const list = document.createElement("ol");
-  list.style.textAlign = "left";
-  list.style.margin = "20px 0";
-
   sortedTeams.forEach(([team, score]) => {
     const li = document.createElement("li");
     li.innerText = `${team}: ${score} bodů`;
+    li.style.color = teamColors[team];
     li.style.marginBottom = "8px";
-    li.style.color = teamColors[team];  // tady barva týmu
     list.appendChild(li);
   });
 
-  modalContent.appendChild(list);
+  content.appendChild(list);
 
   const btnClose = document.createElement("button");
   btnClose.innerText = "Zavřít";
-  btnClose.style.marginTop = "20px";
-  btnClose.style.padding = "10px 25px";
-  btnClose.style.border = "none";
-  btnClose.style.borderRadius = "10px";
-  btnClose.style.backgroundColor = "#2563eb";
-  btnClose.style.color = "white";
-  btnClose.style.fontWeight = "600";
-  btnClose.style.cursor = "pointer";
-
+  btnClose.className = "close-btn";
   btnClose.onclick = () => {
-    document.getElementById("endgame-modal").classList.add("hidden");
+    endModal.classList.add("hidden");
   };
-  modalContent.appendChild(btnClose);
+  content.appendChild(btnClose);
 
-  const endModal = document.getElementById("endgame-modal");
-  endModal.innerHTML = "";
-  endModal.appendChild(modalContent);
+  endModal.appendChild(content);
   endModal.classList.remove("hidden");
 }
-
-
-// V modálním tlačítku při správné odpovědi i "nikdo" přidej checkGameEnd() za closeModal()
-const teamColors = {
-  "Tým 1": "#dc2626", // červená
-  "Tým 2": "#2563eb", // modrá
-  "Tým 3": "#16a34a", // zelená
-  "Tým 4": "#eab308", // žlutá
-  "Tým 5": "#db2777"  // růžová
-};
