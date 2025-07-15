@@ -12,11 +12,11 @@ const gameData = [
   {
     topic: "Uhádni vedoucího",
     questions: [
-      { value: 100, question: "Kdy byla bitva na Bílé hoře?", answer: "1620" },
-      { value: 200, question: "Kdo byl prvním prezidentem ČSR?", answer: "T. G. Masaryk" },
-      { value: 300, question: "Ve kterém roce skončila 2. světová válka?", answer: "1945" },
-      { value: 400, question: "Kdy začala 1. světová válka?", answer: "1914" },
-      { value: 500, question: "Kdo vedl husitské vojsko?", answer: "Jan Žižka" }
+      { value: 100, question: "Kdo to je? <br><img src='ondram.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='ondra.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 200, question: "Kdo to je? <br><img src='kolumbm.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='kolumb.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 300, question: "Kdo to je? <br><img src='davem.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='dave.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 400, question: "Kdo to je? <br><img src='dandam.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='danda.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 500, question: "Kdo to je? <br><img src='princeznam.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='princezna.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" }
     ]
   },
   {
