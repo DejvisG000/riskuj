@@ -22,11 +22,11 @@ const gameData = [
   {
     topic: "Poznej ministranta",
     questions: [
-      { value: 100, question: "Hlavní město Francie?", answer: "Paříž" },
-      { value: 200, question: "Největší oceán na světě?", answer: "Tichý oceán" },
-      { value: 300, question: "Nejvyšší hora světa?", answer: "Mount Everest" },
-      { value: 400, question: "Který stát má nejvíce obyvatel?", answer: "Čína" },
-      { value: 500, question: "Kde leží Viktoriino jezero?", answer: "Afrika" }
+      { value: 100, question: "Kdo to je? <br><img src='mikem.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='mike.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 200, question: "Kdo to je? <br><img src='lukym.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='luky.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 300, question: "Kdo to je? <br><img src='petam.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='peta.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 400, question: "Kdo to je? <br><img src='metrixm.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='metrix.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" },
+      { value: 500, question: "Kdo to je? <br><img src='simonm.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "<br><img src='simon.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>" }
     ]
   },
   {
@@ -42,8 +42,8 @@ const gameData = [
   {
     topic: "Poznej film (song)",
     questions: [
-      { value: 100, question: "Kdo napsal Máj?", answer: "Karel Hynek Mácha" },
-      { value: 200, question: "Kdo je autorem Malého prince?", answer: "Antoine de Saint-Exupéry" },
+      { value: 100, question: "Kdo napsal Máj?", answer: "Try everything - Zootropolis" },
+      { value: 200, question: "Kdo je autorem Malého prince?", answer: "Life is the highway - Auta" },
       { value: 300, question: "Autor R.U.R.?", answer: "Karel Čapek" },
       { value: 400, question: "Kdo napsal Kytici?", answer: "Karel Jaromír Erben" },
       { value: 500, question: "Autorka Harryho Pottera?", answer: "J. K. Rowlingová" }
