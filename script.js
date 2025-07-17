@@ -32,21 +32,21 @@ const gameData = [
   {
     topic: "Poznej film (hláška)",
     questions: [
-      { value: 100, question: "Jaké je největší zvíře?", answer: "Modrá velryba" },
-      { value: 200, question: "Jaký je nejrychlejší suchozemský savec?", answer: "Gepard" },
-      { value: 300, question: "Kolik má pavouk nohou?", answer: "8" },
-      { value: 400, question: "Který pták neumí létat?", answer: "Pštros" },
-      { value: 500, question: "Jak dlouho trvá březost slona?", answer: "22 měsíců" }
+      { value: 100, question: "Jako táborák, ale bez tá.", answer: "Burák - Auta" },
+      { value: 200, question: "Do smrti tě nechxi vidět, ty zmetku pekelnej!", answer: "Petr - Anděl páně 1" },
+      { value: 300, question: "„Maurici, bolí mě ruka, mávej s ní za mě. Makej, ty mrňavej mizero.”", answer: "Král Jelimán - Madagaskar" },
+      { value: 400, question: " Spadlo ti to Máchale , asi vítr.", answer: "Kaprál - S čerty nejsou žerty" },
+      { value: 500, question: "Ten, kdo prdí, půjde jako poslední.", answer: "Buck - Doba ledová 3" }
     ]
   },
   {
     topic: "Poznej film (song)",
     questions: [
-      { value: 100, question: "Kdo napsal Máj?", answer: "Try everything - Zootropolis" },
-      { value: 200, question: "Kdo je autorem Malého prince?", answer: "Life is the highway - Auta" },
-      { value: 300, question: "Autor R.U.R.?", answer: "Karel Čapek" },
-      { value: 400, question: "Kdo napsal Kytici?", answer: "Karel Jaromír Erben" },
-      { value: 500, question: "Autorka Harryho Pottera?", answer: "J. K. Rowlingová" }
+      { value: 100, question: "Poslouchejte! 0-0:15", answer: "Try everything - Zootropolis" },
+      { value: 200, question: "Poslouchejte! 0-0:15", answer: "Life is the highway - Auta" },
+      { value: 300, question: "Poslouchejte! 0-0:30", answer: "Where no one goes - Jak vycvičit draka 2" },
+      { value: 400, question: "Poslouchejte! 0-0:21", answer: "When will my life begin - Na vlásku" },
+      { value: 500, question: "Poslouchejte! 0-0:20", answer: "For the first time in forever - Ledové království 1" }
     ]
   }
 ];
