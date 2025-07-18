@@ -48,6 +48,16 @@ const gameData = [
       { value: 400, question: "Poslouchejte! 0-0:21", answer: "When will my life begin - Na vlásku" },
       { value: 500, question: "Poslouchejte! 0-0:20", answer: "For the first time in forever - Ledové království 1" }
     ]
+  },
+  {
+    topic: "Poznej italský brainrot",
+    questions: [
+      { value: 100, question: "Co to je? <br><img src='tra.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Tralalero Tralala" },
+      { value: 200, question: "Co to je? <br><img src='bom.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Bombombini Gusini" },
+      { value: 300, question: "Co to je? <br><img src='spijo.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Špijuniro Golubiro" },
+      { value: 400, question: "Co to je? <br><img src='tru.png' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "Trulimero Trulicina" },
+      { value: 500, question: "Co to je? <br><img src='udin.jpg' alt='obrázek' style='max-width:100%; max-height: 600px; height:auto;'>", answer: "U Din Din Din Din Dun Ma Din Din Din Dun" }
+    ]
   }
 ];
 
