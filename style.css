@@ -117,6 +117,7 @@ body {
 .team-score.green  { background: #22c55e; }
 .team-score.yellow { background: #eab308; }
 .team-score.pink   { background: #ec4899; }
+.team-score.purple { background: #a855f7; }
 
 .team-score.highlighted {
   animation: highlight 1s ease;

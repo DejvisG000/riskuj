@@ -32,10 +32,10 @@ const gameData = [
   {
     topic: "Poznej film (hláška)",
     questions: [
-      { value: 100, question: "Jako táborák, ale bez tá.", answer: "Burák - Auta" },
-      { value: 200, question: "Do smrti tě nechxi vidět, ty zmetku pekelnej!", answer: "Petr - Anděl páně 1" },
+      { value: 100, question: "Jako táburák, ale bez tá.", answer: "Burák - Auta" },
+      { value: 200, question: "Do smrti tě nechci vidět, ty zmetku pekelnej!", answer: "Petr - Anděl páně 1" },
       { value: 300, question: "„Maurici, bolí mě ruka, mávej s ní za mě. Makej, ty mrňavej mizero.”", answer: "Král Jelimán - Madagaskar" },
-      { value: 400, question: " Spadlo ti to Máchale , asi vítr.", answer: "Kaprál - S čerty nejsou žerty" },
+      { value: 400, question: " Spadlo ti to Máchale, asi vítr.", answer: "Kaprál - S čerty nejsou žerty" },
       { value: 500, question: "Ten, kdo prdí, půjde jako poslední.", answer: "Buck - Doba ledová 3" }
     ]
   },
@@ -61,13 +61,14 @@ const gameData = [
   }
 ];
 
-const teams = ["Tým 1", "Tým 2", "Tým 3", "Tým 4", "Tým 5"];
+const teams = ["Tým 1", "Tým 2", "Tým 3", "Tým 4", "Tým 5", "Tým 6"];
 const teamColors = {
-  "Tým 1": "#dc2626",
-  "Tým 2": "#2563eb",
-  "Tým 3": "#16a34a",
-  "Tým 4": "#eab308",
-  "Tým 5": "#db2777"
+  "Tým 1": "#dc2626", // červená
+  "Tým 2": "#2563eb", // modrá
+  "Tým 3": "#16a34a", // zelená
+  "Tým 4": "#eab308", // žlutá
+  "Tým 5": "#db2777", // růžová
+  "Tým 6": "#a855f7"  // fialová
 };
 const teamScores = Object.fromEntries(teams.map(t => [t, 0]));
 
